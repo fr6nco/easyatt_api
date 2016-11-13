@@ -9,7 +9,7 @@ class RFidSerializer(serializers.ModelSerializer):
         fields = ('id', 'rfid', 'token_type', 'token_status', 'user')
 
 class RFidCreateSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), write_only=True)
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), write_only=True, allow_null=True)
     class Meta:
         model = RFid
         fields = ('id', 'rfid', 'token_type', 'token_status', 'user')

@@ -29,7 +29,7 @@ class RFid(models.Model):
     rfid = models.CharField(max_length=255)
     token_type = models.CharField(choices=TOKEN_TYPE_CHOICES, default=RFID_CARD, max_length=25, null=False)
     token_status = models.CharField(choices=TOKEN_STATUS_CHOICES, default=TOKEN_UNASSIGNED, max_length=25, null=False)
-    user = models.ForeignKey(User, null=True)
+    user = models.ForeignKey(User, null=True, blank=True)
 
     class Meta:
         verbose_name = 'RFID'
