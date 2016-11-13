@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from company_mgm import urls as company_mgm_urls
+from card_mgm import urls as card_mgm_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/v1/', include(company_mgm_urls.getUrlPatterns()), name='company_mgm'),
+    url(r'^api/v1/', include(card_mgm_urls.getUrlPatterns()), name='card_mgm'),
 ]

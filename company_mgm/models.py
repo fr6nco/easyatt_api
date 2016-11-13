@@ -9,6 +9,9 @@ class Company(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1024)
 
+    class Meta:
+        verbose_name = 'Company'
+        verbose_name_plural = 'Companies'
 
 class Location(models.Model):
     name = models.CharField(max_length=255)
