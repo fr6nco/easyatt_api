@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'guardian',
     'company_mgm',
-    'card_mgm'
+    'card_mgm',
+    'user_mgm'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,7 +97,7 @@ DATABASES = {
         'NAME': 'easyatt',
         'USER': 'root',
         'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
-        'HOST': 'devel.itprof.sk',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -104,6 +105,7 @@ DATABASES = {
     }
 }
 
+AUTH_PROFILE_MODULE = 'user_mgm.UserProfile'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

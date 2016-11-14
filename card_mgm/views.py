@@ -13,7 +13,9 @@ class RFidViewSet(ModelViewSet):
     queryset = RFid.objects.all()
 
     def create(self, request, *args, **kwargs):
-        #TODO token assignation validation
+        #TODO assign a company when card is added.
+        #information will be available once the addition is authenticated either via Device or LoggedinUser
+
         serializer = RFidCreateSerializer(data=request.data)
 
         if serializer.is_valid(raise_exception=True):
@@ -22,7 +24,6 @@ class RFidViewSet(ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         rfid = get_object_or_404(RFid, pk=kwargs['pk'])
-        print request.data
         if 'user' in request.data and request.data['user'] is not None:
             rfid.token_status = RFid.TOKEN_ASSIGNED
 

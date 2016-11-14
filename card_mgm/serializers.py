@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 
 class RFidSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField()
+    company = serializers.StringRelatedField()
     class Meta:
         model = RFid
-        fields = ('id', 'rfid', 'token_type', 'token_status', 'user')
+        fields = ('id', 'rfid', 'token_type', 'token_status', 'user', 'company')
 
 class RFidCreateSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), write_only=True, allow_null=True)

@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from django.contrib.auth.models import User
+from company_mgm.models import Company
 
 # Create your models here.
 
@@ -30,6 +31,7 @@ class RFid(models.Model):
     token_type = models.CharField(choices=TOKEN_TYPE_CHOICES, default=RFID_CARD, max_length=25, null=False)
     token_status = models.CharField(choices=TOKEN_STATUS_CHOICES, default=TOKEN_UNASSIGNED, max_length=25, null=False)
     user = models.ForeignKey(User, null=True, blank=True)
+    company = models.ForeignKey(Company, related_name='rfid', blank=True, null=True, default=None)
 
     class Meta:
         verbose_name = 'RFID'
