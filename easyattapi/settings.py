@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'easyatt',
         'USER': 'root',
-        'PASSWORD': 'dregroHaph1',
+        'PASSWORD': os.getenv('DB_PASSWORD', 'password'),
         'HOST': 'devel.itprof.sk',
         'PORT': '3306',
         'OPTIONS': {
