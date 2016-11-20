@@ -38,10 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'guardian',
     'company_mgm',
     'card_mgm',
-    'user_mgm'
+    'user_mgm',
+    'device_mgm',
+    'djoser'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,8 +65,9 @@ AUTHENTICATION_BACKENDS = (
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        'device_mgm.authentication.DeviceAuthenticationBackend',
     )
 }
 

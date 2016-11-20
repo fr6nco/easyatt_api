@@ -1,13 +1,15 @@
 from rest_framework import serializers
+import json
 
 from models import UserProfile
 from django.contrib.auth.models import User, Group
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    company = serializers.StringRelatedField()
+    user = serializers.StringRelatedField(read_only=True)
+    company = serializers.StringRelatedField(read_only=True)
     class Meta:
         model = UserProfile
-        fields = ('id', 'company')
+        fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer()
@@ -22,3 +24,9 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         fields = '__all__'
 
+
+class CreateUserSerializer(serializers.ModelSerializer):
+    company = serializers.IntegerField()
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'company', 'password', 'groups')

@@ -21,6 +21,7 @@ from user_mgm import urls as user_mgm_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/v1/auth/', include('djoser.urls.authtoken')),
     url(r'^api/v1/', include(company_mgm_urls.getUrlPatterns()), name='company_mgm'),
     url(r'^api/v1/', include(card_mgm_urls.getUrlPatterns()), name='card_mgm'),
     url(r'^api/v1/', include(user_mgm_urls.getUrlPatterns()), name='card_mgm')
