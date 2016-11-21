@@ -44,7 +44,9 @@ INSTALLED_APPS = (
     'card_mgm',
     'user_mgm',
     'device_mgm',
-    'djoser'
+    'djoser',
+    'att_mgm',
+    'crispy_forms'
 )
 
 MIDDLEWARE_CLASSES = (

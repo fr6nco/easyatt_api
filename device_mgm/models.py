@@ -17,4 +17,7 @@ class Device(models.Model):
             ('open_door', 'Open door'),
         )
 
+    def __str__(self):
+        return 'Device %s for location %s' % (self.name, self.location)
+
     is_authenticated = True
